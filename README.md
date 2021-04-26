@@ -1,2 +1,0 @@
-# proyecto-evil
-proyecto-evil
