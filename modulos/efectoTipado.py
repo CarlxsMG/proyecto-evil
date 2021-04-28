@@ -3,6 +3,7 @@ import time,sys
 
 # Esta funcion sirve para imprimir texto con un efecto de tipado.
 def escribe_texto(txt):
+
     texto = txt.split()
     for palabra in texto:
         palabra += " "
@@ -21,7 +22,5 @@ def escribe_texto(txt):
 
 
 
-historia = "Esta habitación parece sacada de una película de Sherlock Holmes. A primera vista puedo ver un escritorio justo enfrente, y estanterias con libros llenos de polvo a los lados. Me pregunto si podré encontrar algo de utilidad en esta habitación... "
-
-
+historia = ["Esta habitación parece sacada de una película de Sherlock Holmes.A primera vista puedo ver un escritorio justo enfrente, y estanterias con libros llenos de polvo a los lados.Me pregunto si podré encontrar algo de utilidad en esta habitación... ","Esta habitación asdfsdafdsafsde una película de Sherlock Holmes.A primera vista puedo ver un escritorio justo enfrente, y estanterias con libros llenos de polvo a los lados.Me pregunto sadfsdafdsj sdjhaskjhasd asdfsad abitación... "]
 escribe_texto(historia)
