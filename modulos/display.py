@@ -70,7 +70,6 @@ def display(texto,opciones):
 
 
     def check_key(key):
-        global opciones
         global opciones_default
         global enterKey
         
