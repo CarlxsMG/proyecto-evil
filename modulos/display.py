@@ -140,7 +140,8 @@ def display(texto,opciones):
 
     return clave
     
-
+def clear_inputs(num):
+    print(("\033[F") * num)
 
   
 
