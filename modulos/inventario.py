@@ -18,14 +18,19 @@ class Inventario:
 
     def verObjetos(self):
 
-
         import os
         clear = lambda: os.system("cls")
         clear()
 
-        print("\u001b[31m-----INVENTARIO-----\u001b[0m","\u001b[34m")
-        print('\n'.join(self._inventario)+"\u001b[0m") 
-        print("\u001b[31m--------------------\u001b[0m")
+        espacios = 0
+        for elemento in range(len(self._inventario)):
+            espacios += len(self._inventario[elemento])
+
+        print("\u001b[31m----------INVENTARIO---------\u001b[0m")
+        for x in range(len(self._inventario)):
+            print("|        "+"\u001b[34m"+self._inventario[x] + "\u001b[0m"+(" " * (19 - len(self._inventario[x]) ) ) +"|")
+
+        print("|\u001b[0m"+"\u001b[31m---------------------------\u001b[0m"+"|")
         print("\u001b[0m")
     
 
