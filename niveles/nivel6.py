@@ -17,11 +17,13 @@ from modulos.inventario import Inventario
 
 while True:
     playsound("../musica/biblioteca.mp3",False)
+    """*********************** SE DUPLICA,TRIPLICA ETC... EL SONIDO CADA VEZ QUE SE SELECCIONA "Salir" ***********************"""
     while True:
         texto="Estas en una sala amplia, en la que destaca una estatua central, estanterias con libros antiguos y polvorientos a un lado, y al otro, una larga mesa con papeles."
         opciones=["Acercarse a..","Examinar..","Salir.."]
         if display(texto,opciones)==0:
             clear()
+            texto="¿Donde te gustaria acercarte?"
             opciones=["Estanterias..","Estatua..","Escritorio..","Salir.."]
             if display(texto,opciones)==0:
                 clear()
@@ -36,3 +38,15 @@ while True:
                         opciones=["Salir.."]
                         if display(texto,opciones)==0:
                             break
+                    else:
+                        break
+                else:
+                    break
+            elif display(texto,opciones)==1:
+                """*********************** PREGUNTA DOS VECES "¿Donde te gustaria acercarte? ***********************"""
+                clear()
+                texto="Una estatua de un hombre que porta dos objetos,uno en cada mano.En la mano derecha una llave bastante desgastada y en la izquierda una extraña caja metálica."
+                opciones=["Examinar..","Salir.."]
+                if display(texto,opciones)==0:
+                    texto="En la base de la estatua puede leerse 'En memoria de Wohn Jick' (...). Justo debajo de la leyenda,se puede ver un mecanismo numérico de dos dígitos"
+                    opciones=["Colocar números..","Salir.."]
