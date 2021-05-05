@@ -70,7 +70,6 @@ def display(texto,opciones):
 
 
     def check_key(key):
-        global opciones
         global opciones_default
         global enterKey
         
@@ -98,16 +97,17 @@ def display(texto,opciones):
 
         elif key == "Key.enter":
             enterKey = str(posicion)
+            
 
         else:
             pass
-
+        
         l.stop()
-
 
     global enterKey
     global opciones_default
     enterKey = None
+    clave = None
 
     opciones[0] = "\x1b[31m - "+opciones[0]+"\x1b[0m "
 
@@ -126,17 +126,24 @@ def display(texto,opciones):
         with Listener(on_press=check_key) as l:
             l.join()
 
+        if enterKey != None:
+
+            for i in range(len(opciones)):
+                if "\x1b[31m" in opciones[i]:
+                    clave = i
+                    
+        if clave != None:
+            break
+
         print(("\033[F") * 27)
         pantalla(texto,opciones)
 
-        if enterKey != None:
-            break
-
-
-    return enterKey
+    return clave
     
+def clear_inputs(num):
+    print(("\033[F") * num)
 
-    
+  
 
 
 
