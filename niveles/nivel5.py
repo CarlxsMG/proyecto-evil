@@ -2,7 +2,6 @@ import random
 moneda=0
 cont=0
 inventario=[]
-muerto=False
 intentos=3
 
 
@@ -13,7 +12,7 @@ print("En esta sala se puede apreciar varios arboles, arbustos y rocas, al fondo
 
 print("\n")
 
-while True and muerto == False and intentos>0:
+while intentos>0:
     salir=False
     print("Esta usted en la sala principal:")
     
@@ -29,10 +28,10 @@ while True and muerto == False and intentos>0:
     if op == 1:
         exit
 
-    if op == 2:
+    elif op == 2:
         
         print("Hemos inspeccionado y alrededor de la sala encontramos un Golem y un Orbe:")
-        while True and intentos>0 and salir == False and muerto == False:
+        while   intentos>0 and salir == False:
             
 
             print("1. Acercarse al Golem")
@@ -71,7 +70,7 @@ while True and muerto == False and intentos>0:
                         
                         
 
-                    if op3 == 2:
+                    elif op3 == 2:
                         print("Has seleccionado Golpear")
                         
                         num_aleatorio=random.randint(1,11)
@@ -83,10 +82,11 @@ while True and muerto == False and intentos>0:
 
                         else:
                             print("El Golem te ha matado")
-                            muerto=True
+                            #muerto=True
+                            intentos=0
                             break
                 
-                    if op3 == 3:
+                    elif op3 == 3:
                         print("Has seleccionado Ignorar")
                         salir=True
                         break
@@ -99,7 +99,7 @@ while True and muerto == False and intentos>0:
             if op2 == 2:
                 
                 print("Para poder alcanzar al Orbe tienes que resolver este puzzle. A continuación te encontrarás con unas rocas y un arbol, deberás de seleccionar el camino adecuado:")
-                while True and intentos>0 and salir == False:
+                while   intentos>0 and salir == False:
                     print("PISTA1: Es un objeto duro, resistente y robusto que no tiene vida:")
                     print("1. Rocas")
                     print("2. Arbol Principal")
@@ -120,7 +120,7 @@ while True and muerto == False and intentos>0:
                             else:
                                 print("Ya no te quedan intentos")
                         
-                        if elect2 == 2:
+                        elif elect2 == 2:
                         
                             print("Has acertado, ahora vamos a la última prueba")
                             print("PISTA3: Es un ser viviente con una determinada altura y repleto de hojas que se situa en dirección positiva en horizontal:")
@@ -138,13 +138,13 @@ while True and muerto == False and intentos>0:
                                 else:
                                     print("Ya no te quedan intentos")
                         
-                            if elect3 == 2:
+                            elif elect3 == 2:
                                 intentos-=1
                                 if intentos > 0:
                                     print("Has fallado, no puedes avanzar en el arbusto, te quedan ",intentos,"intentos")
                                 else:
                                     print("Ya no te quedan intentos")
-                            if elect3 == 3:
+                            elif elect3 == 3:
                                 intentos-=1
                                 if intentos > 0:
 
@@ -152,7 +152,7 @@ while True and muerto == False and intentos>0:
                                 else:
                                     print("Ya no te quedan intentos")
                             
-                            if elect3 == 4:
+                            elif elect3 == 4:
                                 print("Has acertado el camino, has podido llegar al Orbe")
 
                                 
@@ -182,7 +182,7 @@ while True and muerto == False and intentos>0:
                                         else:
                                             print("Desde esa posición puedes ver detrás del Golem una pila de cadáveres, no hay nada más relevante")
                         
-                                    if op21 == 2:
+                                    elif op21 == 2:
                                             print("Volver a la sala principal")
                                             salir=True
                                             break
@@ -191,7 +191,7 @@ while True and muerto == False and intentos>0:
                             
                         
                                     
-                        if elect2 == 3:
+                        elif elect2 == 3:
                             intentos-=1
                             if intentos > 0:
                                 print("Has fallado, no puedes avanzar por el arbol derecho, te quedan ",intentos,"intentos")
@@ -199,7 +199,7 @@ while True and muerto == False and intentos>0:
                                 print("Ya no quedan intentos")
                 
                 
-                    if elec1==2:
+                    elif elec1==2:
                         intentos-=1
                         if intentos > 0:
                             print("Has fallado, no puedes avanzar por el arbol principal, te quedan ",intentos,"intentos")
@@ -207,7 +207,7 @@ while True and muerto == False and intentos>0:
                             print("Ya no te quedan intentos")
    
                 
-if intentos == 0 or muerto:
+if intentos == 0:
     print("Has muerto, GAME OVER!")                  
                   
 
