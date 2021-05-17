@@ -317,4 +317,5 @@ def niveles(texto,opciones,diccionario):
 
     return clave
 
-
+def reset_inputs(num):
+    print(("\033[F") * num)
