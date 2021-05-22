@@ -31,75 +31,71 @@ def Sala3(inventario):
 
         opciones = ["Salir","Inspeccionar","Acercarse a ..."]
         texto="Al llegar a la sala... "
+
+        d = display(texto,opciones)
         
-        if display(texto,opciones) == 0:          
+        if d == 0:          
         # OPCION SALIR
             break
 
-        elif display(texto,opciones) == 1:
+        elif d == 1:
         # OPCION "INSPECCIONAR"
-            os.system("cls")
             texto="Observas en el centro del lago un altar con un orbe, están totalmente congelados son un bloque de hielo. A tu derecha apoyado sobre la pared ves una pequeña y vieja barca para una persona."
             opciones = ["Inspeccionar la barca"]
+
+            d = display(texto,opciones)
             
-            if display(texto,opciones) == 0:
+            if d == 0:
             # OPCION "INSPECCIONAR LA BARCA"
                 texto="La barca es muy antigua pero no parece estar rota puede servir para llegar hasta el altar."
                 opciones = ["Llevar la barca al agua"]
+
+                d = display(texto,opciones)
                 
-                if display(texto,opciones) == 0:
+                if d == 0:
                 # OPCION "LLEVAR LA BARCA AL AGUA"
-                    texto="Agarras la barca la vuelcas hacia el suelo y la arrastras hasta el agua, una vez allí te fijas que en el interior de la barca hay lo que parece un pequeño saco de monedas. Al comprobar su contenido encuentras 9 monedas de oro."
-                    inventario.añadirObjeto(["Saco de monedas"])     # Añadimos el dinero recogido al inventario //////// A LA ESPERA DE MODIFICAR ////////
+                    texto="Agarras la barca la vuelcas hacia el suelo y la arrastras hasta el agua."
       
-        elif display(texto,opciones) == 2:         
+        elif d == 2:         
         # OPCION ACERCARSE A...
             opciones = ["Salir","Sirena","Orbe"]        # Se enumera para elegir por le usuario como 0.. 1... 2...
-            texto = "  "
-            if display(texto,opciones) == 0:
+            texto = "'Deberia acercarme a...'"
+
+            d = display(texto,opciones)
+
+            if d == 0:
             # OPCION SALIR
                 return
             
-            elif display(texto,opciones) == 1:
+            elif d == 1:
             # OPCION ACERCARSE A LA SIRENA
             
-                if inventario.buscarObjeto(["Flauta"]) == True:
+                if inventario.buscarObjeto("Flauta") == True:
                 # SI TENEMOS LA FLAUTA EN EL INVENTARIO RECOGIDA EN LA SALA2
                     texto="Te acercas lentamente a la sirena la cual canta con más intensidad.. tal vez podrías..."
                     opciones = ["Salir", "Acompañar la melodía"]
+
+                    d = display(texto,opciones)
                     
-                    if display(texto,opciones) == 0:
+                    if d == 0:
                     # OPCION SALIR
                         return
 
-                    elif display(texto,opciones) == 1:
+                    elif d == 1:
                     # OPCION ACOMPAÑAR LA MELODIA
-                        type_text("Una voz y una melodía te invaden y acompañas sin ninguna dote musical a la sirena.")
+                        type_text("")
                         playsound("../musica/sonido_flauta.mp3")
-                        time.sleep(10)
-                        type_text("La sirena se horroriza con la musica..")
-                        time.sleep(10)
-                        type_text("La sirena no puede soportarlo está aturdida")
-                        time.sleep(10)
-                        type_text("Empieza a llorar sus lagrimas son diferentes brillan como si fuesen mágicas, tal vez tengan algun poder curativo..")
-                        opciones = ["Salir","Recoger en un frasco"]
-                        
-                        if display(texto,opciones) == 0:
-                        # OPCION SALIR
-                            return
-
-                        elif display(texto,opciones) == 1:
-                        # OPCION RECOGER EN UN FRASCO
-                            type_text("Sacas el frasco de tu bolsa y recoges unas pocas lágrimas de la sirena ella todavia aturdida se da la vuelta y se zambulle en el agua, no creo que vuelvas a verla... Las lágrimas de sirena tienen poderes curativos muy potentes son altamente efectivas contra venenos potentes y son muy dificiles de encontrar seguro que pagarian un buen precio por ellas.")
-                            inventario.añadirObjeto(["Frasco con lagrimas"])
-                            #inventario.remove(["Frasco vacío"])
+                        type_text("Una voz y una melodía te invaden y acompañas sin ninguna dote musical a la sirena.\nLa sirena se horroriza con la musica..\nLa sirena no puede soportarlo está aturdida.\nEmpieza a llorar sus lagrimas son diferentes brillan como si fuesen mágicas, tal vez tengan algun poder curativo..")
+                       
+                        type_text("... RECIBES: FRASCO DE LAGRIMAS DE SIRENA ... La sirena ella todavia aturdida se da la vuelta y se zambulle en el agua, no creo que vuelvas a verla... Las lágrimas de sirena tienen poderes curativos muy potentes son altamente efectivas contra venenos potentes y son muy dificiles de encontrar seguro que pagarian un buen precio por ellas.")
+                        inventario.añadirObjeto(["Frasco con lagrimas de sirena"])
 
                 else:
                 # SI NO TENEMOS LA FLAUTA NECESARIA PARA COMPLETAR EL NIVEL.
                     type_text("Te acercas lentamente a la sirena, ella deja de cantar y en su lugar chilla fuerte y agudo tan fuerte que incluso llega a aturdirte. Las sirenas solo entienden el lenguaje de la música.")
                     opciones = ["Salir","Acercarse a ..."]
 
-            elif display(texto,opciones) == 2:
+            elif d == 2:
             # OPCION ACERCARSE AL ORBE
                 
                 if inventario.buscarObjeto(["Flauta"]) == True and inventario.buscarObjeto(["Cubo salitre"]):
@@ -107,11 +103,11 @@ def Sala3(inventario):
                     type_text("Montas en la barca y remas lentamente hasta llegar al altar.")
                     opciones = ["Volver a la orilla", "Usar cubo de salitre"]
 
-                    if display(texto,opciones) == 0:
+                    if d == 0:
                     # OPCIÓN "VOLVER A LA ORILLA"
                         return
 
-                    if display(texto,opciones) == 1:
+                    if d == 1:
                     # OPCION "USAR CUBO DE SALITRE"
                         type_text("Viertes el salitre sobre el hielo del altar y rapidamente ¡empieza a descongelarse!, recoges el orbe del agua.")
                         inventario.añadirObjeto(["Orbe del Agua"])

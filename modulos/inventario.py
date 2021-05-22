@@ -40,7 +40,7 @@ class Inventario:
 
     def buscarObjeto(self,object):
 
-        objecto = str(objecto).upper()
+        objecto = str(object).upper()
         for x in self._inventario:
             if x == objecto:
                 print("\u001b[31m" + objecto,"ya está en el inventario."+"\u001b[0m")
