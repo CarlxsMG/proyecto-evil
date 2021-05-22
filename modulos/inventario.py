@@ -47,6 +47,6 @@ class Inventario:
                 return True
                 break
                
-                
+
 
 
